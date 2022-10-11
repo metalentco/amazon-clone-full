@@ -8,7 +8,7 @@ export const books = {
   Comics: [
     {
       name: "The Amazing Spiderman By Nick Spencer Vol. 1: Back To Basics (MARVEL ORIGINAL COMIC)",
-      price: 1.99,
+      price: 1,
       rating: 4,
       image: Spidey1,
       about:
@@ -16,7 +16,7 @@ export const books = {
     },
     {
       name: "The Amazing Spiderman By Nick Spencer Vol. 2: Friends And Foes (MARVEL ORIGINAL COMIC)",
-      price: 19.99,
+      price: 1,
       rating: 5,
       image: Spidey2,
       about:
@@ -24,7 +24,7 @@ export const books = {
     },
     {
       name: "The Amazing Spiderman By Nick Spencer Vol. 3: Lifetime Achievement (MARVEL ORIGINAL COMIC)",
-      price: 2.99,
+      price: 1,
       rating: 1,
       image: Spidey3,
       about:
@@ -32,7 +32,7 @@ export const books = {
     },
     {
       name: "The Amazing Spiderman By Nick Spencer Vol. 4: Hunted (MARVEL ORIGINAL COMIC)",
-      price: 8.99,
+      price: 1,
       rating: 3,
       image: Spidey4,
       about:
@@ -42,7 +42,7 @@ export const books = {
   Dictionaries: [
     {
       name: "Oxford English Dictionary (3rd Edition)",
-      price: 65.29,
+      price: 1,
       rating: 5,
       image: Dictionary,
       about:

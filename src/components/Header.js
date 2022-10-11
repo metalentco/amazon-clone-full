@@ -1,3 +1,7 @@
+import React, { useEffect, useState, useRef } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { connect } from "../redux/blockchain/blockchainActions";
+
 import { PageHeader, Button, Input, Space, Badge } from 'antd';
 import { useMoralis } from "react-moralis";
 import { Link } from 'react-router-dom';
@@ -6,12 +10,30 @@ import Amazon from "../images/logo.png";
 import USA from "../images/usa.png";
 import BookStore from "../images/bookstore.png";
 import {ShoppingCartOutlined, MenuOutlined} from "@ant-design/icons";
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 const {Search } = Input;
 const categories = ["Comics", "Dictionaries", "Novels", "Fantasy", "Horror", "Adventure"];
 
 const Header = () => {
+
+  // const dispatch = useDispatch();
   const { authenticate, account } = useMoralis();
+  // const blockchain = useSelector((state) => state.blockchain);
+  // console.log("blockchain:", blockchain);
+  // useEffect(() => {
+  //   if(blockchain.account != null) {
+  //     window.alert("Successfully connected");
+  //   }
+  // }, [blockchain.account]);
+  // useEffect(() => {
+  //   if(blockchain.errorMsg != '') {
+  //     window.alert(blockchain.errorMsg);
+  //   }
+  // }, [blockchain.errorMsg]);
+
+  
+
   return(
     <div className="site-page-header-ghost-wrapper">
       <PageHeader
@@ -32,6 +54,31 @@ const Header = () => {
          onClick={() => authenticate()}>
           {account ? <span>{account.slice(0,5)}...</span> : <span>login</span>}
           </Button>
+          {/* {
+            blockchain.account !== null ?
+            <Button
+            className='wallet'
+              onClick={(e) => {
+                e.preventDefault();
+                dispatch(connect());
+              }}
+            >
+              CONNECTED
+            </Button> :
+            <Button
+            className='wallet'
+              onClick={(e) => {
+                e.preventDefault();
+                dispatch(connect());
+              }}
+            >
+              WALLET CONNECT
+            </Button>
+          } */}
+          <button className="connect-wallet">
+            <ConnectButton className="wallet-button"/>
+          </button>
+          
           <Space size={"large"}>
               
               <Badge count={0} showZero>

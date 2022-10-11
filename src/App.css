@@ -13,8 +13,10 @@
 }
 
 .searchBar {
-  margin-top: 4px;
-  width: calc(100vw - 550px);
+  /* margin-top: 9px;
+  padding-top: 3px; */
+  margin-top: 8px;
+  width: calc(100vw - 740px);
 }
 
 .ant-input-search-button{
@@ -29,7 +31,8 @@
 }
 
 .login{
-  padding: 3px 30px;
+  padding: 5px 30px;
+  margin-top:4px;
   font-weight: bold;
   background-color: #fdb13f ;
   border-color: #fdb13f;
@@ -47,4 +50,34 @@
   background-color: #FF9900;
   border: solid 2px white;
   color: white;
+}
+
+.wallet{
+  padding: 3px 5px;
+  font-weight: bold;
+  border: 5px 5px;
+  background-color: #fd653f ;
+  border-color: #fd653f;
+  border: solid 2px #fd653f;
+  color: white;
+}
+
+.wallet:hover{
+  background-color: #fd653f;
+  border: solid 2px white;
+  color: white;
+}
+
+.wallet:focus{
+  background-color: #fd653f;
+  border: solid 2px white;
+  color: white;
+}
+
+.connect-wallet {
+  background-color: black;
+}
+
+.wallet-button{
+  background-color: #fd653f;
 }
