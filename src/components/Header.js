@@ -12,10 +12,22 @@ import BookStore from "../images/bookstore.png";
 import {ShoppingCartOutlined, MenuOutlined} from "@ant-design/icons";
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
+import { useContractRead } from 'wagmi';
+
+import contractInterface from "../config/abi.json";
+
 const {Search } = Input;
 const categories = ["Comics", "Dictionaries", "Novels", "Fantasy", "Horror", "Adventure"];
 
 const Header = () => {
+
+  const { data: getBNBPrice } = useContractRead(
+    {
+      addressOrName: '0x061c71d458fA8dAcDAca3624A50AAE51aA24c655',
+      contractInterface: contractInterface,
+    },
+    'getBNBPrice',
+  );
 
   // const dispatch = useDispatch();
   const { authenticate, account } = useMoralis();
@@ -31,6 +43,13 @@ const Header = () => {
   //     window.alert(blockchain.errorMsg);
   //   }
   // }, [blockchain.errorMsg]);
+  const getPrice = () => {
+    const bnb_price = getBNBPrice/100000000;
+    console.log("getBNBPrice", bnb_price);
+    
+    window.alert("BNB Price: " + bnb_price);
+  }
+
 
   
 
@@ -109,6 +128,9 @@ const Header = () => {
           )
 
         })}
+        <Link to="" className="categories" onClick={() => getPrice()}>
+          Get BNB price
+        </Link>
       </Space>
     </div>
     </div>

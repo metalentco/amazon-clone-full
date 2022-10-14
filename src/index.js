@@ -33,7 +33,7 @@ const bscChain = {
     symbol: 'BSC',
   },
   rpcUrls: {
-    default: 'https://data-seed-prebsc-1-s1.binance.',
+    default: 'https://data-seed-prebsc-1-s1.binance.org:8545',
   },
   blockExplorers: {
     default: { name: 'BSC testnet', url: 'https://explorer.binance.org/smart-test' }
@@ -45,7 +45,7 @@ const { chains, provider } = configureChains(
   [bscChain],
   [
     apiProvider.jsonRpc(chain => ({
-      rpcUrl: 'https://data-seed-prebsc-1-s1.binance.'
+      rpcUrl: 'https://data-seed-prebsc-1-s1.binance.org:8545'
     }))
   ]
 );
