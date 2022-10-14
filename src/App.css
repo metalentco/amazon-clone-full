@@ -15,8 +15,8 @@
 .searchBar {
   /* margin-top: 9px;
   padding-top: 3px; */
-  margin-top: 8px;
-  width: calc(100vw - 850px);
+  margin-top: 4px;
+  width: calc(100vw - 710px);
 }
 
 .ant-input-search-button{
@@ -80,4 +80,24 @@
 
 .wallet-button{
   background-color: #fd653f;
+}
+
+.walletBtn {
+  height: 37px;
+  background: rgb(255, 247, 0);
+  width: 120px;
+  color:rgb(0, 179, 255);
+}
+
+.connectBtn {
+  height: 37px;
+  background: rgb(0, 179, 255);
+  width: 120px;
+
+}
+
+.wrongBtn {
+  height: 37px;
+  background: rgb(255, 68, 0);
+  width: 120px;
 }

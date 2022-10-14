@@ -29,29 +29,13 @@ const Header = () => {
     'getBNBPrice',
   );
 
-  // const dispatch = useDispatch();
   const { authenticate, account } = useMoralis();
-  // const blockchain = useSelector((state) => state.blockchain);
-  // console.log("blockchain:", blockchain);
-  // useEffect(() => {
-  //   if(blockchain.account != null) {
-  //     window.alert("Successfully connected");
-  //   }
-  // }, [blockchain.account]);
-  // useEffect(() => {
-  //   if(blockchain.errorMsg != '') {
-  //     window.alert(blockchain.errorMsg);
-  //   }
-  // }, [blockchain.errorMsg]);
   const getPrice = () => {
     const bnb_price = getBNBPrice/100000000;
     console.log("getBNBPrice", bnb_price);
     
     window.alert("BNB Price: " + bnb_price);
   }
-
-
-  
 
   return(
     <div className="site-page-header-ghost-wrapper">
@@ -95,8 +79,67 @@ const Header = () => {
             </Button>
           } */}
           <button className="connect-wallet">
-            <ConnectButton className="wallet-button"/>
+            <ConnectButton.Custom>
+              {({
+                account,
+                chain,
+                openAccountModal,
+                openChainModal,
+                openConnectModal,
+                authenticationStatus,
+                mounted,
+              }) => {
+                // Note: If your app doesn't use authentication, you
+                // can remove all 'authenticationStatus' checks
+                const ready = mounted && authenticationStatus !== 'loading';
+                const connected =
+                  ready &&
+                  account &&
+                  chain &&
+                  (!authenticationStatus ||
+                    authenticationStatus === 'authenticated');
+
+                return (
+                  <div
+                    {...(!ready && {
+                      'aria-hidden': true,
+                      'style': {
+                        opacity: 0,
+                        pointerEvents: 'none',
+                        userSelect: 'none',
+                      },
+                    })}
+                  >
+                    {(() => {
+                      if (!connected) {
+                        return (
+                          <button onClick={openConnectModal} type="button" className="connectBtn">
+                            Connect Wallet
+                          </button>
+                        );
+                      }
+
+                      if (chain.unsupported) {
+                        return (
+                          <button onClick={openChainModal} type="button" className="wrongBtn">
+                            Wrong network
+                          </button>
+                        );
+                      }
+                      return (
+                        <div style={{ display: 'flex', gap: 12 }}>
+                          <button onClick={openAccountModal} type="button" className="walletBtn">
+                            {account.displayName}
+                          </button>
+                        </div>
+                      );
+                    })()}
+                  </div>
+                );
+              }}
+            </ConnectButton.Custom>
           </button>
+          
           
           <Space size={"large"}>
               
